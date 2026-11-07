@@ -1,0 +1,6 @@
+Sintassi Python: OK
+Download ANNCSU: NON ESEGUITO
+Importazione CSV reale: NON ESEGUITA
+Test browser: NON ESEGUITI
+Pubblicazione: NON ESEGUITA
+Sintassi JavaScript: OK

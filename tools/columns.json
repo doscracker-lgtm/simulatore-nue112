@@ -1,0 +1,40 @@
+{
+  "city": [
+    "DENOMINAZIONE_COMUNE",
+    "DENOM_COMUNE",
+    "NOME_COMUNE",
+    "COMUNE"
+  ],
+  "street": [
+    "DENOMINAZIONE_URBANISTICA",
+    "DENOMINAZIONE_ODONIMO",
+    "DENOMINAZIONE_STRADA",
+    "ODONIMO",
+    "DENOMINAZIONE"
+  ],
+  "dug": [
+    "DUG",
+    "SPECIE",
+    "DENOMINAZIONE_URBANISTICA_GENERICA"
+  ],
+  "number": [
+    "CIVICO",
+    "NUMERO_CIVICO",
+    "NUMERO_ACCESSO",
+    "NUMERO"
+  ],
+  "suffix": [
+    "ESPONENTE",
+    "ESPONENTE_CIVICO"
+  ],
+  "lat": [
+    "LATITUDINE",
+    "LAT",
+    "COORDINATA_Y"
+  ],
+  "lon": [
+    "LONGITUDINE",
+    "LON",
+    "COORDINATA_X"
+  ]
+}
