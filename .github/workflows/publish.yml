@@ -1,0 +1,58 @@
+name: Prepara ANNCSU e pubblica sito
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Scarica il progetto
+        uses: actions/checkout@v4
+
+      - name: Prepara Python sul server GitHub
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Acquisisci e prepara archivi ufficiali
+        run: python tools/build_data.py
+
+      - name: Conserva diagnostica schema
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: schema-diagnostic
+          path: site/data/schema-diagnostic.json
+          if-no-files-found: ignore
+
+      - name: Configura GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepara il sito da pubblicare
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Pubblica
+        id: deployment
+        uses: actions/deploy-pages@v4
